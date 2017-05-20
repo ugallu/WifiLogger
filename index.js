@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 
 app.get('*', function(req, res){
@@ -9,6 +9,7 @@ res.sendFile(__dirname + '/page.html');
 });
 
 io.sockets.on('connection', function(socket) {
+  console.log("x")
   socket.on('event', function(room) {
     console.log("New user connected to room " + room);
     socket.join(room);
@@ -20,5 +21,5 @@ io.sockets.on('connection', function(socket) {
 });
 
 http.listen(port, function(){
-  console.log('listening on *:3000');
+  console.log('listening on *:' + port);
 });
