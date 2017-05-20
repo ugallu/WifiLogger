@@ -1,0 +1,30 @@
+{
+  "name": "wifilogger",
+  "version": "0.0.1",
+  "description": "Wireless logger page for websocket-sent messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ugallu/WifiLogger.git"
+  },
+  "keywords": [
+    "wireless",
+    "logger",
+    "websocket"
+  ],
+  "author": "István Gergely Oláh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ugallu/WifiLogger/issues"
+  },
+  "homepage": "https://github.com/ugallu/WifiLogger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "socket.io": "^2.0.1",
+    "websocket": "^1.0.24"
+  }
+}
