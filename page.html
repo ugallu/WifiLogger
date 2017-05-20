@@ -20,6 +20,9 @@ tr td:first-child{width:100px}
     <tbody id="tbody">
     </tbody>
   </table>
+    <form action="">
+       <input id="m" autocomplete="off" /><button>Send</button>
+     </form>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
@@ -28,7 +31,13 @@ tr td:first-child{width:100px}
     $(function () {
     var socket = io();
     socket.emit('event', filename);
-    socket.on('log', function(msg){
+    
+	$('form').submit(function(){
+      socket.emit('log', $('#m').val(), filename);
+      $('#m').val('');
+      return false;
+    });
+socket.on('log', function(msg){
       date = new Date()
       row = $('<tr>')
       row.append($('<td>').text(date.toLocaleTimeString()));
