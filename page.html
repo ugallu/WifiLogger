@@ -32,9 +32,12 @@ tr td:first-child{width:100px}
 socket.on('log', function(msg){
       date = new Date()
       row = $('<tr>')
+      tmpMsg = msg.toUpperCase()
+      if(tmpMsg.indexOf("ERROR") != -1) row.addClass("alert alert-danger")
+      else if(tmpMsg.indexOf("SUCCESS") != -1) row.addClass("alert alert-success")
+
       row.append($('<td>').text(date.toLocaleTimeString()));
       row.append($('<td>').text(msg))
- 
       $('#tbody').append(row);
       window.scrollTo(0,document.body.scrollHeight);
     });
